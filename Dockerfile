@@ -27,7 +27,8 @@ RUN set -x \
     && chown -R 1001:0  "${JIRA_INSTALL}/conf" \
     && chown -R 1001:0  "${JIRA_INSTALL}/logs" \
     && chown -R 1001:0  "${JIRA_INSTALL}/temp" \
-    && chown -R 1001:0  "${JIRA_INSTALL}/work"
+    && chown -R 1001:0  "${JIRA_INSTALL}/work" \
+    && chown -R 1001:0  "/"
     
 # Use the standard UID for openshift.
 USER 1001
