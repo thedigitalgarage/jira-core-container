@@ -27,17 +27,16 @@ RUN set -x \
     && chown -R 1001:0  "${JIRA_INSTALL}/conf" \
     && chown -R 1001:0  "${JIRA_INSTALL}/logs" \
     && chown -R 1001:0  "${JIRA_INSTALL}/temp" \
-    && chown -R 1001:0  "${JIRA_INSTALL}/work" \
-    && chown -R 1001:0  "/"
-    
-# Use the standard UID for openshift.
-USER 1001
+    && chown -R 1001:0  "${JIRA_INSTALL}/work"
 
 # Expose default HTTP connector port.
 EXPOSE 8080
 
 COPY "docker-entrypoint.sh" "/"
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
+# Use the standard UID for openshift.
+USER 1001
 
 # Run Atlassian JIRA as a foreground process by default.
 CMD ["/opt/atlassian/jira/bin/catalina.sh", "run"]
