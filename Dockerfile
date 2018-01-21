@@ -32,9 +32,6 @@ RUN set -x \
 # Expose default HTTP connector port.
 EXPOSE 8080
 
-COPY "docker-entrypoint.sh" "/"
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
 # Use the standard UID for openshift.
 USER 1001
 
